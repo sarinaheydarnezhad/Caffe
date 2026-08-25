@@ -12,11 +12,10 @@
   <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
 </head>
 <body>
-  <!-- ناوبری -->
+  <!-- ناوبری مدرن -->
   <nav class="navbar">
     <div class="logo">کافه <span>دنج</span></div>
     <ul class="nav-links">
-      <li><a href="#about" class="scroll-link">درباره ما</a></li>
       <li><a href="#desserts" class="scroll-link">دسرها</a></li>
       <li><a href="#menu" class="scroll-link">منو</a></li>
       <li><a href="#contact" class="scroll-link">تماس</a></li>
@@ -24,48 +23,50 @@
     </ul>
   </nav>
 
-  <!-- درباره ما -->
-  <section class="hero" id="about">
-    <div class="hero-text">
-      <h1>کافه دنج، جایی برای لحظه‌های گرم</h1>
-      <p>ما از سال ۱۳۹۵ با عشق به قهوه و دسرهای خانگی، محیطی آرام را برای شما فراهم کرده‌ایم.</p>
-      <a href="#reservation" class="btn-rose scroll-link">رزرو سریع</a>
-    </div>
-    <div class="hero-image">
-      <svg width="220" height="220" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="100" cy="100" r="85" fill="#E8CDB5" />
-        <circle cx="70" cy="85" r="18" fill="#FFF6EE" />
-        <circle cx="130" cy="85" r="18" fill="#FFF6EE" />
-        <circle cx="70" cy="85" r="9" fill="#B07D5B" />
-        <circle cx="130" cy="85" r="9" fill="#B07D5B" />
-        <path d="M75 118 Q100 140 125 118" stroke="#A76844" stroke-width="5" fill="none" stroke-linecap="round" />
-        <path d="M40 70 Q30 50 45 40" stroke="#B07D5B" stroke-width="4" fill="none" stroke-linecap="round" />
-        <path d="M160 70 Q170 50 155 40" stroke="#B07D5B" stroke-width="4" fill="none" stroke-linecap="round" />
-      </svg>
-    </div>
-  </section>
-
   <!-- دسرهای محبوب -->
   <section class="popular-desserts" id="desserts">
     <h2 class="section-title">دسرهای محبوب</h2>
     <div class="dessert-grid">
       <div class="dessert-card">
-        <div class="dessert-icon">🍰</div>
+        <div class="dessert-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2l2.4 4.8 5.1.7-3.7 3.6.9 5.1-4.7-2.5-4.7 2.5.9-5.1L4.5 7.5l5.1-.7L12 2z"/>
+            <path d="M12 22V12"/>
+          </svg>
+        </div>
         <h3>کیک شکلاتی</h3>
         <p>ترافل بلژیکی</p>
       </div>
       <div class="dessert-card">
-        <div class="dessert-icon">🍮</div>
+        <div class="dessert-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/>
+            <circle cx="12" cy="12" r="5"/>
+            <circle cx="12" cy="12" r="1"/>
+          </svg>
+        </div>
         <h3>کرم کارامل</h3>
         <p>کارامل خانگی</p>
       </div>
       <div class="dessert-card">
-        <div class="dessert-icon">🧁</div>
+        <div class="dessert-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C7 2 3 6 3 11s4 9 9 9 9-4 9-9-4-9-9-9z"/>
+            <path d="M7 11h10M9 7v8M15 7v8"/>
+          </svg>
+        </div>
         <h3>کاپ کیک</h3>
         <p>کرم پنیری</p>
       </div>
       <div class="dessert-card">
-        <div class="dessert-icon">🍨</div>
+        <div class="dessert-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 20L20 8"/>
+            <circle cx="6" cy="18" r="2"/>
+            <circle cx="18" cy="6" r="2"/>
+            <path d="M8 16l4-4 4 4"/>
+          </svg>
+        </div>
         <h3>بستنی سنتی</h3>
         <p>زعفرانی، گلاب</p>
       </div>
@@ -74,35 +75,69 @@
 
   <!-- اسلایدر منو -->
   <section class="menu-slider-section" id="menu">
-    <h2 class="section-title" style="margin-bottom: 1rem;">منوی کافه</h2>
+    <h2 class="section-title">منوی کافه</h2>
     <div class="slider-track">
       <div class="menu-slide">
-        <div class="menu-emoji">☕</div>
+        <div class="menu-emoji">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 8h1a4 4 0 1 1 0 8h-1"/>
+            <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"/>
+            <line x1="6" y1="2" x2="6" y2="4"/>
+            <line x1="10" y1="2" x2="10" y2="4"/>
+            <line x1="14" y1="2" x2="14" y2="4"/>
+          </svg>
+        </div>
         <h4>اسپرسو</h4>
         <span>۴۵ ت</span>
       </div>
       <div class="menu-slide">
-        <div class="menu-emoji">🍵</div>
+        <div class="menu-emoji">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 8h16v8a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8z"/>
+            <path d="M8 4v4M12 4v4M16 4v4"/>
+          </svg>
+        </div>
         <h4>چای ماسالا</h4>
         <span>۵۵ ت</span>
       </div>
       <div class="menu-slide">
-        <div class="menu-emoji">🧋</div>
+        <div class="menu-emoji">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 2v4M14 2v4"/>
+            <path d="M4 6h16v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6z"/>
+            <path d="M8 12h8"/>
+          </svg>
+        </div>
         <h4>آیس لاته</h4>
         <span>۶۰ ت</span>
       </div>
       <div class="menu-slide">
-        <div class="menu-emoji">🥐</div>
+        <div class="menu-emoji">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2l3 6-3 4-3-4 3-6z"/>
+            <path d="M5 22h14l-4-8H9l-4 8z"/>
+          </svg>
+        </div>
         <h4>کروسان</h4>
         <span>۳۵ ت</span>
       </div>
       <div class="menu-slide">
-        <div class="menu-emoji">🍰</div>
+        <div class="menu-emoji">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M12 3v18M3 12h18"/>
+          </svg>
+        </div>
         <h4>چیزکیک</h4>
         <span>۷۵ ت</span>
       </div>
       <div class="menu-slide">
-        <div class="menu-emoji">🥤</div>
+        <div class="menu-emoji">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 8h16v8a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8z"/>
+            <path d="M8 4v4M16 4v4"/>
+          </svg>
+        </div>
         <h4>موهیتو</h4>
         <span>۵۰ ت</span>
       </div>
@@ -113,13 +148,26 @@
   <section class="contact-section" id="contact">
     <div class="contact-info">
       <h3>تماس با ما</h3>
-      <div class="contact-detail">📞 ۰۲۱-۲۲۳۳۴۴۵۵</div>
-      <div class="contact-detail">📱 ۰۹۱۲۳۴۵۶۷۸۹</div>
-      <div class="contact-detail">📍 تهران، خیابان ولیعصر، کوچه باغ</div>
-      <div class="contact-detail">✉️ info@cafedonj.ir</div>
-    </div>
-    <div class="contact-icon">
-      <span>🫖</span>
+      <div class="contact-detail">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        ۰۲۱-۲۲۳۳۴۴۵۵
+      </div>
+      <div class="contact-detail">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="2"/>
+          <path d="M22 8l-10 6L2 8"/>
+        </svg>
+        info@cafedonj.ir
+      </div>
+      <div class="contact-detail">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 21s-8-4.5-8-11a4 4 0 0 1 8 0 4 4 0 0 1 8 0c0 6.5-8 11-8 11z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        تهران، خیابان ولیعصر
+      </div>
     </div>
   </section>
 
