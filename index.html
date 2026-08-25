@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>کافه دنج | رزرو نوبت و منو</title>
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <!-- ناوبری -->
+  <nav class="navbar">
+    <div class="logo">کافه <span>دنج</span></div>
+    <ul class="nav-links">
+      <li><a href="#about" class="scroll-link">درباره ما</a></li>
+      <li><a href="#desserts" class="scroll-link">دسرها</a></li>
+      <li><a href="#menu" class="scroll-link">منو</a></li>
+      <li><a href="#contact" class="scroll-link">تماس</a></li>
+      <li><a href="#reservation" class="scroll-link">رزرو نوبت</a></li>
+    </ul>
+  </nav>
+
+  <!-- درباره ما -->
+  <section class="hero" id="about">
+    <div class="hero-text">
+      <h1>کافه دنج، جایی برای لحظه‌های گرم</h1>
+      <p>ما از سال ۱۳۹۵ با عشق به قهوه و دسرهای خانگی، محیطی آرام را برای شما فراهم کرده‌ایم.</p>
+      <a href="#reservation" class="btn-rose scroll-link">رزرو سریع</a>
+    </div>
+    <div class="hero-image">
+      <svg width="220" height="220" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="85" fill="#E8CDB5" />
+        <circle cx="70" cy="85" r="18" fill="#FFF6EE" />
+        <circle cx="130" cy="85" r="18" fill="#FFF6EE" />
+        <circle cx="70" cy="85" r="9" fill="#B07D5B" />
+        <circle cx="130" cy="85" r="9" fill="#B07D5B" />
+        <path d="M75 118 Q100 140 125 118" stroke="#A76844" stroke-width="5" fill="none" stroke-linecap="round" />
+        <path d="M40 70 Q30 50 45 40" stroke="#B07D5B" stroke-width="4" fill="none" stroke-linecap="round" />
+        <path d="M160 70 Q170 50 155 40" stroke="#B07D5B" stroke-width="4" fill="none" stroke-linecap="round" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- دسرهای محبوب -->
+  <section class="popular-desserts" id="desserts">
+    <h2 class="section-title">دسرهای محبوب</h2>
+    <div class="dessert-grid">
+      <div class="dessert-card">
+        <div class="dessert-icon">🍰</div>
+        <h3>کیک شکلاتی</h3>
+        <p>ترافل بلژیکی</p>
+      </div>
+      <div class="dessert-card">
+        <div class="dessert-icon">🍮</div>
+        <h3>کرم کارامل</h3>
+        <p>کارامل خانگی</p>
+      </div>
+      <div class="dessert-card">
+        <div class="dessert-icon">🧁</div>
+        <h3>کاپ کیک</h3>
+        <p>کرم پنیری</p>
+      </div>
+      <div class="dessert-card">
+        <div class="dessert-icon">🍨</div>
+        <h3>بستنی سنتی</h3>
+        <p>زعفرانی، گلاب</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- اسلایدر منو -->
+  <section class="menu-slider-section" id="menu">
+    <h2 class="section-title" style="margin-bottom: 1rem;">منوی کافه</h2>
+    <div class="slider-track">
+      <div class="menu-slide">
+        <div class="menu-emoji">☕</div>
+        <h4>اسپرسو</h4>
+        <span>۴۵ ت</span>
+      </div>
+      <div class="menu-slide">
+        <div class="menu-emoji">🍵</div>
+        <h4>چای ماسالا</h4>
+        <span>۵۵ ت</span>
+      </div>
+      <div class="menu-slide">
+        <div class="menu-emoji">🧋</div>
+        <h4>آیس لاته</h4>
+        <span>۶۰ ت</span>
+      </div>
+      <div class="menu-slide">
+        <div class="menu-emoji">🥐</div>
+        <h4>کروسان</h4>
+        <span>۳۵ ت</span>
+      </div>
+      <div class="menu-slide">
+        <div class="menu-emoji">🍰</div>
+        <h4>چیزکیک</h4>
+        <span>۷۵ ت</span>
+      </div>
+      <div class="menu-slide">
+        <div class="menu-emoji">🥤</div>
+        <h4>موهیتو</h4>
+        <span>۵۰ ت</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- تماس با ما -->
+  <section class="contact-section" id="contact">
+    <div class="contact-info">
+      <h3>تماس با ما</h3>
+      <div class="contact-detail">📞 ۰۲۱-۲۲۳۳۴۴۵۵</div>
+      <div class="contact-detail">📱 ۰۹۱۲۳۴۵۶۷۸۹</div>
+      <div class="contact-detail">📍 تهران، خیابان ولیعصر، کوچه باغ</div>
+      <div class="contact-detail">✉️ info@cafedonj.ir</div>
+    </div>
+    <div class="contact-icon">
+      <span>🫖</span>
+    </div>
+  </section>
+
+  <!-- رزرو نوبت -->
+  <section class="reservation-section" id="reservation">
+    <h2 class="section-title">رزرو نوبت</h2>
+    <div class="reservation-card">
+      <div id="successMessage" class="success-message" style="display: none;">
+        ✅ رزرو شما با موفقیت ثبت شد!
+      </div>
+      <div id="errorMessage" class="error-message" style="display: none;">
+        ❌ خطا در ثبت رزرو. لطفاً دوباره تلاش کنید.
+      </div>
+      <form id="reservationForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">نام</label>
+            <input type="text" id="firstName" placeholder="مثلاً علی" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">نام خانوادگی</label>
+            <input type="text" id="lastName" placeholder="مثلاً رضایی" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">شماره تماس</label>
+            <input type="tel" id="phone" placeholder="۰۹۱۲xxxxxxx" required>
+          </div>
+          <div class="form-group">
+            <label for="date">تاریخ رزرو</label>
+            <input type="date" id="date" required>
+          </div>
+        </div>
+        <div class="form-group" style="margin-bottom:1.2rem;">
+          <label for="guests">تعداد نفرات</label>
+          <input type="number" id="guests" min="1" max="20" placeholder="۲" required>
+        </div>
+        <button type="submit" class="submit-btn" id="submitBtn">ثبت درخواست رزرو</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- فوتر -->
+  <footer>
+    © ۱۴۰۳ کافه دنج | تمامی حقوق محفوظ است.
+  </footer>
+
+  <script src="firebase-config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
