@@ -1,222 +1,222 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>کافه دنج | رزرو نوبت و منو</title>
-  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="style.css">
-  
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>کافه گاه | رزرو میز</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- ناوبری مدرن -->
-  <nav class="navbar">
-    <div class="logo">کافه <span>دنج</span></div>
-    <ul class="nav-links">
-      <li><a href="#desserts" class="scroll-link">دسرها</a></li>
-      <li><a href="#menu" class="scroll-link">منو</a></li>
-      <li><a href="#contact" class="scroll-link">تماس</a></li>
-      <li><a href="#reservation" class="scroll-link">رزرو نوبت</a></li>
-    </ul>
-  </nav>
 
-  <!-- دسرهای محبوب -->
-  <section class="popular-desserts" id="desserts">
-    <h2 class="section-title">دسرهای محبوب</h2>
-    <div class="dessert-grid">
-      <div class="dessert-card">
-        <div class="dessert-icon">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2l2.4 4.8 5.1.7-3.7 3.6.9 5.1-4.7-2.5-4.7 2.5.9-5.1L4.5 7.5l5.1-.7L12 2z"/>
-            <path d="M12 22V12"/>
-          </svg>
-        </div>
-        <h3>کیک شکلاتی</h3>
-        <p>ترافل بلژیکی</p>
+  <!-- ===== هدر ===== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">کافه <span>گاه</span></div>
+      <nav>
+        <a href="#about">درباره ما</a>
+        <a href="#menu">منو</a>
+        <a href="#booking">رزرو میز</a>
+        <a href="#contact">تماس با ما</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== بخش هیرو (ساده و سبک) ===== -->
+  <section class="hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+
+    <div class="container hero-inner">
+      <p class="eyebrow reveal-up" style="--delay:0s">از ساعت ۸ صبح تا ۱۱ شب</p>
+      <h1 class="reveal-up" style="--delay:0.1s">یک میز، یک <span class="text-gradient">فنجان قهوه</span>،<br>و کمی وقت برای خودت.</h1>
+      <p class="hero-sub reveal-up" style="--delay:0.2s">کافه گاه جایی برای نفس کشیدن وسط روز شلوغه. میزت رو از قبل رزرو کن تا وقتی رسیدی، منتظر نمونی.</p>
+      <a href="#booking" class="btn-primary reveal-up" style="--delay:0.3s">رزرو میز</a>
+    </div>
+
+    <div class="steam" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </div>
+  </section>
+
+  <!-- ===== درباره ما ===== -->
+  <section id="about" class="about">
+    <div class="container about-inner">
+      <div>
+        <h2>درباره کافه گاه</h2>
+        <p>کافه گاه از سال ۱۴۰۰ تو دل شهر، یک گوشه‌ی آروم برای علاقه‌مندان قهوه‌ی تازه‌دم و کیک خونگیه. دونه‌های قهوه رو خودمون تازه آسیاب می‌کنیم و فضا رو طوری چیدیم که بشه هم تنها اومد، هم دورهمی گرفت.</p>
       </div>
-      <div class="dessert-card">
-        <div class="dessert-icon">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="9"/>
-            <circle cx="12" cy="12" r="5"/>
-            <circle cx="12" cy="12" r="1"/>
-          </svg>
-        </div>
-        <h3>کرم کارامل</h3>
-        <p>کارامل خانگی</p>
-      </div>
-      <div class="dessert-card">
-        <div class="dessert-icon">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2C7 2 3 6 3 11s4 9 9 9 9-4 9-9-4-9-9-9z"/>
-            <path d="M7 11h10M9 7v8M15 7v8"/>
-          </svg>
-        </div>
-        <h3>کاپ کیک</h3>
-        <p>کرم پنیری</p>
-      </div>
-      <div class="dessert-card">
-        <div class="dessert-icon">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 20L20 8"/>
-            <circle cx="6" cy="18" r="2"/>
-            <circle cx="18" cy="6" r="2"/>
-            <path d="M8 16l4-4 4 4"/>
-          </svg>
-        </div>
-        <h3>بستنی سنتی</h3>
-        <p>زعفرانی، گلاب</p>
+      <div class="about-stats">
+        <div class="stat"><span class="stat-num">۵</span><span class="stat-label">سال تجربه</span></div>
+        <div class="stat"><span class="stat-num">۵۰۰+</span><span class="stat-label">رزرو موفق</span></div>
+        <div class="stat"><span class="stat-num">۴.۹</span><span class="stat-label">امتیاز مشتری‌ها</span></div>
       </div>
     </div>
   </section>
 
-  <!-- اسلایدر منو -->
-  <section class="menu-slider-section" id="menu">
-    <h2 class="section-title">منوی کافه</h2>
-    <div class="slider-track">
-      <div class="menu-slide">
-        <div class="menu-emoji">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M17 8h1a4 4 0 1 1 0 8h-1"/>
-            <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"/>
-            <line x1="6" y1="2" x2="6" y2="4"/>
-            <line x1="10" y1="2" x2="10" y2="4"/>
-            <line x1="14" y1="2" x2="14" y2="4"/>
-          </svg>
+  <!-- ===== منو خلاصه ===== -->
+  <section id="menu" class="menu">
+    <div class="container">
+      <h2>چی می‌خوری؟</h2>
+      <div class="menu-grid">
+        <div class="menu-item reveal-blur">
+          <h3>اسپرسو</h3>
+          <p>۴۵,۰۰۰ تومان</p>
         </div>
-        <h4>اسپرسو</h4>
-        <span>۴۵ ت</span>
-      </div>
-      <div class="menu-slide">
-        <div class="menu-emoji">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 8h16v8a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8z"/>
-            <path d="M8 4v4M12 4v4M16 4v4"/>
-          </svg>
+        <div class="menu-item reveal-blur">
+          <h3>لاته</h3>
+          <p>۶۵,۰۰۰ تومان</p>
         </div>
-        <h4>چای ماسالا</h4>
-        <span>۵۵ ت</span>
-      </div>
-      <div class="menu-slide">
-        <div class="menu-emoji">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M10 2v4M14 2v4"/>
-            <path d="M4 6h16v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6z"/>
-            <path d="M8 12h8"/>
-          </svg>
+        <div class="menu-item reveal-blur">
+          <h3>کرمانی (کیک خانگی)</h3>
+          <p>۷۰,۰۰۰ تومان</p>
         </div>
-        <h4>آیس لاته</h4>
-        <span>۶۰ ت</span>
-      </div>
-      <div class="menu-slide">
-        <div class="menu-emoji">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2l3 6-3 4-3-4 3-6z"/>
-            <path d="M5 22h14l-4-8H9l-4 8z"/>
-          </svg>
+        <div class="menu-item reveal-blur">
+          <h3>دمنوش زعفران</h3>
+          <p>۵۵,۰۰۰ تومان</p>
         </div>
-        <h4>کروسان</h4>
-        <span>۳۵ ت</span>
-      </div>
-      <div class="menu-slide">
-        <div class="menu-emoji">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="9"/>
-            <path d="M12 3v18M3 12h18"/>
-          </svg>
-        </div>
-        <h4>چیزکیک</h4>
-        <span>۷۵ ت</span>
-      </div>
-      <div class="menu-slide">
-        <div class="menu-emoji">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 8h16v8a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8z"/>
-            <path d="M8 4v4M16 4v4"/>
-          </svg>
-        </div>
-        <h4>موهیتو</h4>
-        <span>۵۰ ت</span>
       </div>
     </div>
   </section>
 
-  <!-- تماس با ما -->
-  <section class="contact-section" id="contact">
-    <div class="contact-info">
-      <h3>تماس با ما</h3>
-      <div class="contact-detail">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-        </svg>
-        ۰۲۱-۲۲۳۳۴۴۵۵
+  <!-- ===== اسلایدر محصولات بیشتر ===== -->
+  <section class="more-items">
+    <div class="container">
+      <div class="more-items-head">
+        <h2>بیشتر بچشین</h2>
+        <div class="slider-nav">
+          <button type="button" class="slider-btn" id="slide-prev" aria-label="قبلی">‹</button>
+          <button type="button" class="slider-btn" id="slide-next" aria-label="بعدی">›</button>
+        </div>
       </div>
-      <div class="contact-detail">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="2" width="20" height="20" rx="2"/>
-          <path d="M22 8l-10 6L2 8"/>
-        </svg>
-        info@cafedonj.ir
-      </div>
-      <div class="contact-detail">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 21s-8-4.5-8-11a4 4 0 0 1 8 0 4 4 0 0 1 8 0c0 6.5-8 11-8 11z"/>
-          <circle cx="12" cy="10" r="3"/>
-        </svg>
-        تهران، خیابان ولیعصر
+
+      <div class="slider-track" id="slider-track">
+        <div class="slide-card">
+          <div class="slide-thumb thumb-1"></div>
+          <h3>کاپوچینو</h3>
+          <p>۶۰,۰۰۰ تومان</p>
+        </div>
+        <div class="slide-card">
+          <div class="slide-thumb thumb-2"></div>
+          <h3>موکا</h3>
+          <p>۷۵,۰۰۰ تومان</p>
+        </div>
+        <div class="slide-card">
+          <div class="slide-thumb thumb-3"></div>
+          <h3>چیزکیک</h3>
+          <p>۸۵,۰۰۰ تومان</p>
+        </div>
+        <div class="slide-card">
+          <div class="slide-thumb thumb-4"></div>
+          <h3>آیس‌کافی</h3>
+          <p>۵۸,۰۰۰ تومان</p>
+        </div>
+        <div class="slide-card">
+          <div class="slide-thumb thumb-5"></div>
+          <h3>کروسان</h3>
+          <p>۴۸,۰۰۰ تومان</p>
+        </div>
+        <div class="slide-card">
+          <div class="slide-thumb thumb-6"></div>
+          <h3>شکلات داغ</h3>
+          <p>۶۲,۰۰۰ تومان</p>
+        </div>
+        <div class="slide-card">
+          <div class="slide-thumb thumb-7"></div>
+          <h3>کوکی بادام</h3>
+          <p>۴۰,۰۰۰ تومان</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- رزرو نوبت -->
-  <section class="reservation-section" id="reservation">
-    <h2 class="section-title">رزرو نوبت</h2>
-    <div class="reservation-card">
-      <div id="successMessage" class="success-message" style="display: none;">
-        ✅ رزرو شما با موفقیت ثبت شد!
+  <!-- ===== فرم رزرو ===== -->
+  <section id="booking" class="booking">
+    <div class="container booking-inner">
+      <div class="booking-text">
+        <h2>رزرو میز</h2>
+        <p>فرم رو پر کن، تا ۵ دقیقه دیگه پیام تاییدش رو می‌بینی.</p>
+
+        <ul class="booking-perks">
+          <li><span class="perk-icon">✓</span> لغو رایگان تا ۲ ساعت قبل</li>
+          <li><span class="perk-icon">✓</span> میز کنار پنجره در صورت درخواست</li>
+          <li><span class="perk-icon">✓</span> بدون هزینه‌ی اضافه برای رزرو</li>
+        </ul>
       </div>
-      <div id="errorMessage" class="error-message" style="display: none;">
-        ❌ خطا در ثبت رزرو. لطفاً دوباره تلاش کنید.
-      </div>
-      <form id="reservationForm">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="firstName">نام</label>
-            <input type="text" id="firstName" placeholder="مثلاً علی" required>
+
+      <form id="booking-form" class="booking-form" novalidate>
+        <div class="field">
+          <label for="name">اسم</label>
+          <input type="text" id="name" name="name" placeholder="مثلاً سارا محمدی" required />
+          <span class="error-msg" id="name-error"></span>
+        </div>
+
+        <div class="field">
+          <label for="phone">شماره تماس</label>
+          <input type="tel" id="phone" name="phone" placeholder="09xxxxxxxxx" required />
+          <span class="error-msg" id="phone-error"></span>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="date">تاریخ</label>
+            <input type="date" id="date" name="date" required />
+            <span class="error-msg" id="date-error"></span>
           </div>
-          <div class="form-group">
-            <label for="lastName">نام خانوادگی</label>
-            <input type="text" id="lastName" placeholder="مثلاً رضایی" required>
+
+          <div class="field">
+            <label for="time">ساعت</label>
+            <select id="time" name="time" required>
+              <option value="" disabled selected>انتخاب کن</option>
+              <option value="10:00">۱۰:۰۰</option>
+              <option value="12:00">۱۲:۰۰</option>
+              <option value="15:00">۱۵:۰۰</option>
+              <option value="18:00">۱۸:۰۰</option>
+              <option value="20:00">۲۰:۰۰</option>
+            </select>
+            <span class="error-msg" id="time-error"></span>
           </div>
         </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="phone">شماره تماس</label>
-            <input type="tel" id="phone" placeholder="۰۹۱۲xxxxxxx" required>
-          </div>
-          <div class="form-group">
-            <label for="date">تاریخ رزرو</label>
-            <input type="date" id="date" required>
-          </div>
-        </div>
-        <div class="form-group" style="margin-bottom:1.2rem;">
+
+        <div class="field">
           <label for="guests">تعداد نفرات</label>
-          <input type="number" id="guests" min="1" max="20" placeholder="۲" required>
+          <input type="number" id="guests" name="guests" min="1" max="12" value="2" required />
         </div>
-        <button type="submit" class="submit-btn" id="submitBtn">ثبت درخواست رزرو</button>
+
+        <button type="submit" class="btn-primary">ثبت رزرو</button>
+
+        <p id="success-msg" class="success-msg" hidden>
+          ✓ رزروت ثبت شد. منتظرت هستیم!
+        </p>
       </form>
     </div>
   </section>
 
-  <!-- فوتر -->
-  <footer>
-    © ۱۴۰۳ کافه دنج | تمامی حقوق محفوظ است.
+  <!-- ===== تماس با ما ===== -->
+  <section id="contact" class="contact">
+    <div class="container contact-inner">
+      <div>
+        <h2>تماس با ما</h2>
+        <p>سوالی داری یا می‌خوای برای یک جمع بزرگ‌تر هماهنگ کنی؟ باهامون در تماس باش.</p>
+      </div>
+      <ul class="contact-list">
+        <li><span class="contact-icon">📍</span> خیابان ولیعصر، تهران</li>
+        <li><span class="contact-icon">📞</span> ۰۲۱-۱۲۳۴۵۶۷۸</li>
+        <li><span class="contact-icon">✉️</span> hello@cafe-gah.ir</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>کافه گاه — خیابان ولیعصر، تهران</p>
+    </div>
   </footer>
 
-  <script src="firebase-config.js"></script>
+  <!-- Firebase (نسخه‌ی compat که بدون npm و بدون سرور محلی هم کار می‌کنه) -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="ui.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
