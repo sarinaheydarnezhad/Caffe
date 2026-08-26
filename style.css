@@ -1,405 +1,357 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Vazirmatn', sans-serif;
+/* ===== توکن‌های طراحی ===== */
+:root {
+  --coffee-dark: #2b1b12;
+  --coffee: #4a2e1c;
+  --paper: #f3ead9;
+  --brass: #b3893f;
+  --brass-light: #d9b876;
+  --rose: #c97b63;
+  --ink: #241610;
+  --error: #b3462c;
+  --radius: 14px;
+
+  --gradient-brass: linear-gradient(135deg, var(--brass) 0%, var(--brass-light) 100%);
+  --gradient-warm: linear-gradient(135deg, var(--rose) 0%, var(--brass) 50%, var(--brass-light) 100%);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 16px; /* تا هنگام اسکرول به یک بخش، تیترش کاملاً بالای صفحه نچسبه */
 }
 
 body {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #1a1a2e 100%);
-  color: #e0e0e0;
+  font-family: 'Vazirmatn', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
   line-height: 1.7;
-  min-height: 100vh;
 }
 
-/* ناوبری مدرن با گرادینت */
-.navbar {
+section { scroll-margin-top: 16px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* ===== انیمیشن ورود (سبک: فقط opacity + transform، بدون فیلتر) ===== */
+.reveal-up, .reveal-blur {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition-delay: var(--delay, 0s);
+}
+.reveal-up.in-view, .reveal-blur.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-up, .reveal-blur { opacity: 1; transform: none; transition: none; }
+}
+
+.menu-item:nth-child(1) { --delay: 0s; }
+.menu-item:nth-child(2) { --delay: 0.08s; }
+.menu-item:nth-child(3) { --delay: 0.16s; }
+.menu-item:nth-child(4) { --delay: 0.24s; }
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+a { text-decoration: none; color: inherit; }
+
+.text-gradient {
+  background: var(--gradient-warm);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ===== هدر ===== */
+.site-header { background: var(--coffee-dark); color: var(--paper); }
+.header-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 5%;
-  background: rgba(26, 26, 46, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.logo {
-  font-size: 1.8rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.logo span {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.nav-links {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #e0e0e0;
-  font-weight: 500;
-  transition: all 0.3s;
-  font-size: 1rem;
-  cursor: pointer;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-}
-
-.nav-links a:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
-  transform: translateY(-2px);
-}
-
-/* دسرهای محبوب با گرادینت */
-.popular-desserts {
-  padding: 4rem 7%;
-  text-align: center;
-}
-
-.section-title {
-  font-size: 2.2rem;
-  margin-bottom: 3rem;
-  color: #fff;
-  position: relative;
-  display: inline-block;
-  font-weight: 700;
-}
-
-.section-title::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 4px;
-  background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
-  margin: 0.5rem auto 0;
-  border-radius: 4px;
-}
-
-.dessert-grid {
-  display: flex;
+  padding: 20px 24px;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
+  gap: 12px;
 }
+.logo { font-weight: 900; font-size: 1.4rem; }
+.logo span { color: var(--brass-light); }
+nav { display: flex; gap: 20px; flex-wrap: wrap; }
+nav a { font-weight: 500; opacity: 0.85; transition: opacity 0.2s; }
+nav a:hover, nav a:focus-visible { opacity: 1; color: var(--brass-light); }
 
-.dessert-card {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  padding: 2rem 1.5rem;
-  border-radius: 24px;
-  width: 220px;
-  transition: all 0.3s ease;
-  cursor: pointer;
+/* ===== هیرو — ساده و سبک ===== */
+.hero {
+  background: var(--coffee-dark);
+  color: var(--paper);
+  padding: 80px 24px 120px;
   position: relative;
   overflow: hidden;
 }
 
-.dessert-card::before {
-  content: '';
+/* چند نور ملایم ثابت پشت متن — بدون انیمیشن و بدون فیلتر بلور، پس هزینه‌ی رندر نداره */
+.hero-glow {
   position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  transition: left 0.5s;
+  inset: 0;
+  background:
+    radial-gradient(420px circle at 85% 15%, rgba(179, 137, 63, 0.28), transparent 65%),
+    radial-gradient(320px circle at 10% 90%, rgba(201, 123, 99, 0.16), transparent 65%);
+  pointer-events: none;
 }
 
-.dessert-card:hover::before {
-  left: 100%;
-}
+.hero-inner { position: relative; max-width: 640px; }
 
-.dessert-card:hover {
-  transform: translateY(-10px);
-  border-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+.eyebrow {
+  display: inline-block;
+  color: var(--brass-light);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  padding: 6px 14px;
+  border: 1px solid rgba(217, 184, 118, 0.35);
+  border-radius: 100px;
+  margin-bottom: 22px;
 }
-
-.dessert-icon {
-  color: #f093fb;
-  margin-bottom: 1rem;
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1.35;
+  margin-bottom: 20px;
 }
+.hero-sub { font-size: 1.1rem; opacity: 0.8; max-width: 480px; margin-bottom: 32px; }
 
-.dessert-icon svg {
-  stroke: url(#gradient);
-  stroke-width: 1.5;
+.btn-primary {
+  display: inline-block;
+  background: var(--gradient-brass);
+  color: var(--coffee-dark);
+  font-weight: 700;
+  padding: 14px 32px;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: filter 0.2s, transform 0.15s;
 }
+.btn-primary:hover { filter: brightness(1.08); }
+.btn-primary:active { transform: scale(0.98); }
+.btn-primary:focus-visible { outline: 3px solid var(--brass-light); outline-offset: 3px; }
 
-.dessert-card h3 {
-  color: #fff;
-  margin-bottom: 0.5rem;
+/* بخار قهوه — سبک (فقط transform + opacity، ارزون برای مرورگر) */
+.steam {
+  position: absolute;
+  left: 60px;
+  bottom: 30px;
+  display: flex;
+  gap: 10px;
+  opacity: 0.5;
+}
+.steam span {
+  width: 4px;
+  height: 60px;
+  background: linear-gradient(to top, transparent, var(--brass-light), transparent);
+  border-radius: 4px;
+  animation: rise 3.5s ease-in-out infinite;
+}
+.steam span:nth-child(2) { animation-delay: 0.8s; height: 80px; }
+.steam span:nth-child(3) { animation-delay: 1.6s; height: 50px; }
+@keyframes rise {
+  0%   { transform: translateY(0) scaleY(1); opacity: 0; }
+  30%  { opacity: 0.6; }
+  100% { transform: translateY(-40px) scaleY(1.3); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .steam span { animation: none; opacity: 0.3; } }
+
+/* ===== درباره ما ===== */
+.about { padding: 64px 24px; background: var(--paper); }
+.about-inner {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.about h2 { font-size: 1.6rem; font-weight: 900; margin-bottom: 12px; color: var(--coffee); }
+.about p { opacity: 0.85; }
+.about-stats { display: flex; gap: 24px; }
+.stat { text-align: center; }
+.stat-num {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--brass);
+}
+.stat-label { font-size: 0.8rem; opacity: 0.7; }
+
+/* ===== منو ===== */
+.menu { padding: 72px 24px; background: #ede0c8; }
+.menu h2 { font-size: 1.8rem; font-weight: 900; margin-bottom: 32px; color: var(--coffee); }
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+.menu-item {
+  background: white;
+  border: 1px solid #e5d8c1;
+  border-radius: var(--radius);
+  padding: 20px;
+}
+.menu-item h3 { font-size: 1.1rem; margin-bottom: 8px; }
+.menu-item p { color: var(--brass); font-weight: 700; }
+
+/* ===== اسلایدر محصولات بیشتر ===== */
+.more-items { padding: 64px 0; background: var(--coffee-dark); color: var(--paper); overflow: hidden; }
+.more-items-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding: 0 24px;
+  max-width: 1000px;
+  margin-inline: auto;
+}
+.more-items-head h2 { font-size: 1.5rem; font-weight: 900; }
+
+.slider-nav { display: flex; gap: 10px; }
+.slider-btn {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(217, 184, 118, 0.4);
+  background: rgba(255,255,255,0.05);
+  color: var(--brass-light);
   font-size: 1.3rem;
+  cursor: pointer;
 }
-
-.dessert-card p {
-  font-size: 0.9rem;
-  color: #b0b0b0;
-}
-
-/* اسلایدر منو با گرادینت */
-.menu-slider-section {
-  padding: 4rem 0;
-  background: linear-gradient(180deg, rgba(15, 52, 96, 0.5) 0%, rgba(26, 26, 46, 0.8) 100%);
-  text-align: center;
-  margin: 2rem 0;
-}
+.slider-btn:hover { background: rgba(217, 184, 118, 0.15); }
 
 .slider-track {
   display: flex;
-  gap: 1.5rem;
+  gap: 18px;
   overflow-x: auto;
-  padding: 1.5rem 5%;
   scroll-snap-type: x mandatory;
-  scrollbar-width: thin;
-  scrollbar-color: #667eea rgba(255, 255, 255, 0.1);
-  -webkit-overflow-scrolling: touch;
+  padding: 4px 24px 12px;
+  scrollbar-width: none;
 }
+.slider-track::-webkit-scrollbar { display: none; }
 
-.slider-track::-webkit-scrollbar {
-  height: 6px;
-}
-
-.slider-track::-webkit-scrollbar-thumb {
-  background: linear-gradient(90deg, #667eea, #764ba2);
-  border-radius: 10px;
-}
-
-.menu-slide {
-  flex: 0 0 180px;
+.slide-card {
+  flex: 0 0 190px;
+  scroll-snap-align: start;
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 20px;
-  padding: 1.5rem 1rem;
-  scroll-snap-align: center;
-  transition: all 0.3s;
-  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius);
+  padding: 16px;
 }
+.slide-thumb { height: 100px; border-radius: 10px; margin-bottom: 12px; }
+.thumb-1 { background: linear-gradient(135deg, #8a5a34, #d9b876); }
+.thumb-2 { background: linear-gradient(135deg, #5c3a22, #c97b63); }
+.thumb-3 { background: linear-gradient(135deg, #b3893f, #f3ead9); }
+.thumb-4 { background: linear-gradient(135deg, #2f6b2a, #d9b876); }
+.thumb-5 { background: linear-gradient(135deg, #c97b63, #b3893f); }
+.thumb-6 { background: linear-gradient(135deg, #6b3a2a, #c97b63); }
+.thumb-7 { background: linear-gradient(135deg, #d9b876, #f3ead9); }
+.slide-card h3 { font-size: 0.95rem; margin-bottom: 4px; }
+.slide-card p { color: var(--brass-light); font-weight: 700; font-size: 0.85rem; }
 
-.menu-slide:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: #667eea;
-  transform: translateY(-5px);
+/* ===== بخش رزرو ===== */
+.booking { background: var(--coffee); color: var(--paper); padding: 72px 24px; }
+.booking-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
 }
+.booking-text h2 { font-size: 1.8rem; font-weight: 900; margin-bottom: 12px; }
+.booking-text p { opacity: 0.8; margin-bottom: 24px; }
 
-.menu-emoji {
-  color: #667eea;
-  margin-bottom: 0.8rem;
-}
-
-.menu-emoji svg {
-  stroke-width: 1.5;
-}
-
-.menu-slide h4 {
-  color: #fff;
-  margin-bottom: 0.3rem;
-}
-
-.menu-slide span {
-  color: #b0b0b0;
-  font-size: 0.9rem;
-}
-
-/* تماس با ما */
-.contact-section {
-  padding: 4rem 7%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
+.booking-perks { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.booking-perks li { display: flex; align-items: center; gap: 10px; opacity: 0.9; }
+.perk-icon {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.02);
-}
-
-.contact-info {
-  flex: 1 1 300px;
-}
-
-.contact-info h3 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: #fff;
-}
-
-.contact-detail {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 0.8rem 1.5rem;
-  border-radius: 30px;
-  margin: 0.8rem 0;
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  font-size: 0.95rem;
-  color: #e0e0e0;
-  transition: all 0.3s;
-}
-
-.contact-detail:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: #667eea;
-}
-
-.contact-detail svg {
-  color: #667eea;
+  width: 22px; height: 22px;
   flex-shrink: 0;
+  background: var(--brass);
+  color: var(--coffee-dark);
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: 900;
 }
 
-/* فرم رزرو نوبت با گرادینت */
-.reservation-section {
-  padding: 4rem 7%;
-  background: linear-gradient(135deg, rgba(26, 26, 46, 0.9) 0%, rgba(15, 52, 96, 0.7) 100%);
-  border-radius: 40px 40px 0 0;
-}
-
-.reservation-card {
-  max-width: 650px;
-  margin: 2rem auto;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  padding: 2.5rem;
-  border-radius: 35px;
-}
-
-.form-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.2rem;
-  margin-bottom: 1.5rem;
-}
-
-.form-group {
-  flex: 1 1 45%;
+.booking-form {
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: var(--radius);
+  padding: 28px;
+  max-width: 380px;
+  margin-inline-start: auto;
   display: flex;
   flex-direction: column;
+  gap: 16px;
 }
-
-.form-group label {
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #e0e0e0;
-  font-size: 0.95rem;
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+label { font-weight: 700; font-size: 0.95rem; }
+input, select {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 12px 14px;
+  border: 1.5px solid #d9c8a8;
+  border-radius: 10px;
+  background: white;
+  color: var(--ink);
 }
-
-.form-group input {
-  padding: 0.8rem 1.2rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 25px;
-  font-size: 0.95rem;
-  background: rgba(255, 255, 255, 0.05);
-  color: #fff;
-  transition: all 0.3s;
-}
-
-.form-group input::placeholder {
-  color: #888;
-}
-
-.form-group input:focus {
+input:focus-visible, select:focus-visible {
   outline: none;
-  border-color: #667eea;
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+  border-color: var(--brass);
+  box-shadow: 0 0 0 3px rgba(179, 137, 63, 0.25);
 }
-
-.submit-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border: none;
-  padding: 1rem 2.5rem;
-  border-radius: 30px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s;
-  width: 100%;
-  margin-top: 0.5rem;
-}
-
-.submit-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
-}
-
-.submit-btn:disabled {
-  background: linear-gradient(135deg, #555, #666);
-  cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
-}
-
-/* پیام‌های موفقیت و خطا */
-.success-message {
-  background: rgba(76, 175, 80, 0.2);
-  border: 1px solid #4caf50;
-  color: #81c784;
-  padding: 1rem;
+input.invalid, select.invalid { border-color: var(--error); }
+.error-msg { color: var(--error); font-size: 0.85rem; min-height: 1.1em; }
+.success-msg {
+  background: #e4f0e2;
+  color: #2f6b2a;
   border-radius: 10px;
-  margin-bottom: 1rem;
+  padding: 14px;
   text-align: center;
-  font-weight: 600;
+  font-weight: 700;
 }
 
-.error-message {
-  background: rgba(244, 67, 54, 0.2);
-  border: 1px solid #f44336;
-  color: #e57373;
-  padding: 1rem;
-  border-radius: 10px;
-  margin-bottom: 1rem;
-  text-align: center;
-  font-weight: 600;
+/* ===== تماس با ما ===== */
+.contact { padding: 64px 24px; background: var(--paper); }
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: center;
 }
+.contact h2 { font-size: 1.6rem; font-weight: 900; margin-bottom: 12px; color: var(--coffee); }
+.contact p { opacity: 0.85; }
+.contact-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.contact-list li { display: flex; align-items: center; gap: 10px; font-weight: 500; }
+.contact-icon { font-size: 1.1rem; }
 
-/* فوتر */
-footer {
+/* ===== فوتر ===== */
+.site-footer {
+  background: var(--coffee-dark);
+  color: var(--paper);
+  opacity: 0.8;
+  padding: 24px;
   text-align: center;
-  padding: 2rem;
-  background: rgba(0, 0, 0, 0.3);
-  color: #888;
   font-size: 0.9rem;
 }
 
-/* ریسپانسیو */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    gap: 0.8rem;
-    padding: 0.8rem 3%;
-  }
-
-  .nav-links {
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .form-group {
-    flex: 1 1 100%;
-  }
-
-  .dessert-grid {
-    gap: 1.5rem;
-  }
-
-  .dessert-card {
-    width: 180px;
-  }
+/* ===== موبایل ===== */
+@media (max-width: 720px) {
+  .booking-inner { grid-template-columns: 1fr; }
+  .booking-form { max-width: 100%; margin-inline: 0; }
+  .field-row { grid-template-columns: 1fr; }
+  .about-inner, .contact-inner { grid-template-columns: 1fr; }
+  .more-items-head { flex-direction: column; align-items: flex-start; gap: 16px; }
 }
