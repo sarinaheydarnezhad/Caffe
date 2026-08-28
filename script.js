@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 
 app.use(express.json());
-
+app.use(cors());
 const bookings = [];
 
 app.get('/', (req, res) => {
